@@ -29,7 +29,7 @@ import { Toaster } from 'react-hot-toast';
 
 
 export const App = () => {
-  const contacts = useSelector(state => state.contacts.initial
+  const contacts = useSelector(state => state.contacts.item
 );
 console.log(contacts)
  const filter = useSelector(state => state.filter);
