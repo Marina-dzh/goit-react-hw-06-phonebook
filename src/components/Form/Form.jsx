@@ -4,7 +4,7 @@ import "yup-phone";
 import PropTypes from 'prop-types';
 import { Input, Error, Button } from "./Form.styled";
 import { useDispatch } from "react-redux";
-import { addContact } from "../redux/actions"
+import { addContact } from "../redux/slice"
 import { Toaster, toast } from 'react-hot-toast';
 
 const initialValues = {
