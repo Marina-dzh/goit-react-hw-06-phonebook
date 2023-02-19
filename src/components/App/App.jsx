@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 
-import { nanoid } from "nanoid";
+
 import React, { useEffect , useState} from "react";
 import { ContactForm } from "../Form/Form";
 import { ContactList } from "../List/List";
 import { Container } from "./App.styled";
 // import { useState } from "react";
-import { Toaster, toast } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 
 
