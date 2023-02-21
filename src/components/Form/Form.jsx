@@ -4,8 +4,9 @@ import "yup-phone";
 import PropTypes from 'prop-types';
 import { Input, Error, Button } from "./Form.styled";
 import { useDispatch } from "react-redux";
-import { addContact } from "../redux/slice"
-import {  toast } from 'react-hot-toast';
+import { addContact } from "../redux/contactSlice"
+import { toast } from 'react-hot-toast';
+import { nanoid } from "@reduxjs/toolkit";
 
 const initialValues = {
 
@@ -21,7 +22,7 @@ export const ContactForm = ({contacts}) => {
     const dispatch = useDispatch();
 
     const  handleSubmit = (values, {resetForm}) => {
-        console.log(values)
+        // console.log(values)
         
         const { name, number } = values
         for (const item of contacts) {
@@ -33,10 +34,14 @@ export const ContactForm = ({contacts}) => {
           style: {
             color: "black",
         backgroundColor:"#ffa500"  } 
-});
+        });
+          resetForm();
         return
-    }}
- dispatch(addContact(values))
+            }
+        }
+        const id = nanoid()
+        const data = {name, number, id}
+ dispatch(addContact(data))
         resetForm()
         
     }

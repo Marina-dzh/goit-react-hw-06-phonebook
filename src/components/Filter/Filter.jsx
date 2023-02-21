@@ -1,12 +1,12 @@
 
 import { Input, Text } from "./Filter.styled"
-import { setStatusFilter } from "../redux/slice"
+import { setStatusFilter } from "../redux/filterSlice"
 
 import { useDispatch } from "react-redux";
  
 export const Filter = () => {
     
-    
+    const dispatch = useDispatch();
     const changeFilter = (e) => {
         e.preventDefault();
     //   console.log(e.currentTarget.value)
@@ -14,7 +14,7 @@ export const Filter = () => {
    }
 
   
- const dispatch = useDispatch();
+ 
     return (
        <>
             <Text>Find contacts by name</Text>

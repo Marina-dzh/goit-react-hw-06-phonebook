@@ -2,16 +2,20 @@ import { Filter } from "../Filter/Filter"
 import { List, Item, Number, Button } from "./List.styled"
 import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../redux/slice"
+import { deleteContact } from "../redux/contactSlice"
+import { useSelector } from "react-redux";
+import { getContacts, getFilter } from "components/redux/selectors";
 
-
-export const ContactList = ({ contacts,changeFilter,filter, deleteContact } ) => {
-    
+export const ContactList = ( ) => {
+    const contacts = useSelector(getContacts);
+     const filterQ = useSelector(getFilter);
+    const visibleContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filterQ.toLowerCase())
+    );
     return (
         <>
             <Filter  />
         <List>
-            {contacts.map(contact => (
+            {visibleContacts.map(contact => (
                 <ContactItem key={contact.id} contact={contact} deleteContact={ deleteContact} />
     
             ))}
